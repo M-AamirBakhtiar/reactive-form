@@ -5,11 +5,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   selector: 'app-card-form',
   template: `
     <form [formGroup]="cardForm">
-      <input type="text" formControlName="name" />
+      <app-input [control]="cardForm.get('name')"></app-input>
     </form>
 
     <div>Form Contents: {{ cardForm.value | json }}</div>
     <div>Form is Valid: {{ cardForm.valid }}</div>
+    <div>Errors around name: {{ cardForm.controls.name.errors | json }}</div>
   `,
 })
 export class CardFormComponent {
